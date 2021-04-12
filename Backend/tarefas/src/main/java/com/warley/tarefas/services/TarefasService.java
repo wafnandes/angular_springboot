@@ -32,4 +32,9 @@ public class TarefasService {
 		List<Tarefas> list = repository.findAllClose();
 		return list;
 	}
+
+	public List<Tarefas> findAll() {
+		List<Tarefas> list = repository.findAll();
+		return list;
+	}
 }

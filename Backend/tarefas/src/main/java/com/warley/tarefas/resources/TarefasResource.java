@@ -50,5 +50,10 @@ public class TarefasResource {
 		return ResponseEntity.ok().body(list);
 	}
 	
+	@GetMapping
+	public ResponseEntity<List<Tarefas>> listAll() {
+		List<Tarefas> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
 	
 }
