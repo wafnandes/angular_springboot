@@ -1,5 +1,6 @@
 package com.warley.tarefas.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,8 @@ public class TarefasService {
 		return obj.orElse(null);
 	}
 	
+	public List<Tarefas> findAllOpen() {
+		List<Tarefas> list = repository.findAllOpen();
+		return list;
+	}
 }

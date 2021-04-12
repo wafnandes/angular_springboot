@@ -1,5 +1,7 @@
 package com.warley.tarefas.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +35,12 @@ public class TarefasResource {
 	public ResponseEntity<Tarefas> findById(@PathVariable Integer id){
 		Tarefas obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/open")
+	public ResponseEntity<List<Tarefas>> listOpen(){
+	
+		List<Tarefas> list = service.findAllOpen();
+		return ResponseEntity.ok().body(list);
 	}
 }
