@@ -37,4 +37,9 @@ public class TarefasService {
 		List<Tarefas> list = repository.findAll();
 		return list;
 	}
+
+	public Tarefas create(Tarefas obj) {
+		obj.setId(null);
+		return repository.save(obj);
+	}
 }
