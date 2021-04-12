@@ -1,0 +1,5 @@
+package com.warley.tarefas.repositories;
+
+public interface TarefasRepository {
+
+}

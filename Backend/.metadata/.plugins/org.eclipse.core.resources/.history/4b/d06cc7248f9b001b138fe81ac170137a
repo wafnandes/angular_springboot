@@ -1,0 +1,5 @@
+package com.warley.tarefas.configuration;
+
+public class TestConfig {
+
+}

@@ -1,0 +1,12 @@
+package com.warley.tarefas.domain;
+
+import java.time.LocalDateTime;
+
+public class Tarefas {
+	private Integer id;
+	private String titulo;
+	private String descricao;
+	private LocalDateTime dataParaFinalizar;
+	private Boolean finalizado=false;
+}
+

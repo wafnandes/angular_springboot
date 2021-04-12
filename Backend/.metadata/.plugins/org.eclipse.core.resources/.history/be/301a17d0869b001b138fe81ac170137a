@@ -1,0 +1,5 @@
+package com.warley.tarefas.domain;
+
+public class Tarefas {
+
+}
