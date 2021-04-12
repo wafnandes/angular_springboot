@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.warley.tarefas.domain.Tarefas;
 import com.warley.tarefas.repositories.TarefasRepository;
+import com.warley.tarefas.services.exceptions.ObjectNotFoundException;
+
 
 /*
  * @Service: Notação que permite injetar o serviço em partes diferentes do código
@@ -20,7 +22,8 @@ public class TarefasService {
 	
 	public Tarefas findById(Integer id) {
 		Optional<Tarefas> obj = repository.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Tarefas.class.getName()));
 	}
 	
 	public List<Tarefas> findAllOpen() {
