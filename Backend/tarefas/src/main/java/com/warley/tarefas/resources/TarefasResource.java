@@ -21,26 +21,34 @@ import com.warley.tarefas.services.TarefasService;
 @RestController
 @RequestMapping(value = "/tarefas")
 public class TarefasResource {
-	
+
 	@Autowired
 	private TarefasService service;
-	
+
 	/*
-	 * @GetMapping: notação que informa que o método retorna um responseEntity de uma 
-	 * requisição do tipo Get.
+	 * @GetMapping: notação que informa que o método retorna um responseEntity de
+	 * uma requisição do tipo Get.
 	 * 
-	 * @PathVariable: notação que indica que o parâmetro veio de um path, no caso {id}.
+	 * @PathVariable: notação que indica que o parâmetro veio de um path, no caso
+	 * {id}.
 	 */
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Tarefas> findById(@PathVariable Integer id){
+	public ResponseEntity<Tarefas> findById(@PathVariable Integer id) {
 		Tarefas obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
+
 	@GetMapping(value = "/open")
-	public ResponseEntity<List<Tarefas>> listOpen(){
-	
+	public ResponseEntity<List<Tarefas>> listOpen() {
 		List<Tarefas> list = service.findAllOpen();
 		return ResponseEntity.ok().body(list);
 	}
+	
+	@GetMapping(value = "/close")
+	public ResponseEntity<List<Tarefas>> listClose() {
+		List<Tarefas> list = service.findAllClose();
+		return ResponseEntity.ok().body(list);
+	}
+	
+	
 }

@@ -27,4 +27,9 @@ public class TarefasService {
 		List<Tarefas> list = repository.findAllOpen();
 		return list;
 	}
+
+	public List<Tarefas> findAllClose() {
+		List<Tarefas> list = repository.findAllClose();
+		return list;
+	}
 }

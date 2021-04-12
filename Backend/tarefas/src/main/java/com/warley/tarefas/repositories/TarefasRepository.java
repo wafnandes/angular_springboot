@@ -17,4 +17,7 @@ public interface TarefasRepository extends JpaRepository<Tarefas, Integer> {
 	@Query("SELECT obj FROM Tarefas obj WHERE obj.finalizado = false ORDER BY obj.dataParaFinalizar")
 	List<Tarefas> findAllOpen();
 
+	@Query("SELECT obj FROM Tarefas obj WHERE obj.finalizado = true ORDER BY obj.dataParaFinalizar")
+	List<Tarefas> findAllClose();
+
 }
