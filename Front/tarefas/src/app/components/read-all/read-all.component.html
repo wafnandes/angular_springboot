@@ -1,4 +1,8 @@
 <div class="container">
+    <div class="badge">
+      <button mat-stroked-button color="primary" matBadge="{{ closed }}">Tarefas finalizadas</button>
+    </div>
+
     <button class="nova-tarefa mat-elevation-z8" mat-stroked-button color="primary">
       Nova Tarefa
     </button>
@@ -18,7 +22,7 @@
           <button mat-mini-fab color="accent">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-mini-fab color="warn">
+          <button (click)="delete(item.id)" mat-mini-fab color="warn">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { TarefasService } from 'src/app/services/tarefas.service';
 import { Tarefas } from '../../models/tarefas';
 
@@ -9,10 +10,9 @@ import { Tarefas } from '../../models/tarefas';
 })
 export class ReadAllComponent implements OnInit {
 
-  list: Tarefas[] = [
-    
-  ]
-
+  list: Tarefas[] = []
+  listFinished: Tarefas[] = []
+  closed = 0;
 
   constructor(private service: TarefasService) { }
 
@@ -21,9 +21,26 @@ export class ReadAllComponent implements OnInit {
   }
 
   findAll(): void{
-    this.service.findAll().subscribe((resposta) => 
-      this.list = resposta
-    )
+    this.service.findAll().subscribe((resposta) => {
+      resposta.forEach(tarefas => {
+        if(tarefas.finalizado) {
+          this.listFinished.push(tarefas);
+        } else {
+          this.list.push(tarefas);
+        }
+      })
+      this.closed = this.listFinished.length
+    });
   }
+
+  delete(id: any): void{
+    this.service.delete(id).subscribe((resposta) => {
+      if(resposta === null){
+        this.service.message('Tarefa deletada com sucesso!');
+        this.list = this.list.filter(tarefas => tarefas.id !== id)
+      }
+    })
+  }
+
 
 }
