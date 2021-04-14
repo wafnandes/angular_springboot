@@ -15,8 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatBadgeModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
