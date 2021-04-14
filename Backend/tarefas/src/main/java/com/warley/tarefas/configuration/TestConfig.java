@@ -1,5 +1,7 @@
 package com.warley.tarefas.configuration;
 
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +23,7 @@ public class TestConfig {
 	 * Inicializa as instâncias da base de dados
 	 */
 	@Bean
-	public boolean instancia() {
+	public boolean instancia() throws ParseException {
 		this.dbService.instanciaBaseDeDados();
 		return true;
 	}
