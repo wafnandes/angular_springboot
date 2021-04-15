@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { TarefasService } from 'src/app/services/tarefas.service';
 import { Tarefas } from '../../models/tarefas';
 
@@ -14,7 +15,7 @@ export class ReadAllComponent implements OnInit {
   listFinished: Tarefas[] = []
   closed = 0;
 
-  constructor(private service: TarefasService) { }
+  constructor(private service: TarefasService, private router: Router) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -42,5 +43,8 @@ export class ReadAllComponent implements OnInit {
     })
   }
 
+  navegarParaFinalizados(): void{
+    this.router.navigate(['finalizados'])
+  }
 
 }

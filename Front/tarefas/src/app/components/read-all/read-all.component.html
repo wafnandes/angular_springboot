@@ -1,6 +1,8 @@
 <div class="container">
     <div class="badge">
-      <button mat-stroked-button color="primary" matBadge="{{ closed }}">Tarefas finalizadas</button>
+      <button (click)="navegarParaFinalizados()" mat-stroked-button color="primary" matBadge="{{ closed }}">
+        Tarefas finalizadas
+      </button>
     </div>
 
     <button class="nova-tarefa mat-elevation-z8" mat-stroked-button color="primary">
