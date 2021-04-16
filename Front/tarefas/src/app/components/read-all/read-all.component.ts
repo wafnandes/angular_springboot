@@ -34,6 +34,15 @@ export class ReadAllComponent implements OnInit {
     });
   }
 
+  finalizar(item: Tarefas): void{
+    item.finalizado = true;
+    this.service.update(item).subscribe(() => {
+      this.service.message('Tarefa finalizada com sucesso!');
+      this.list = this.list.filter(tarefas => tarefas.id !== item.id);
+      this.closed++;
+    })
+  }
+
   delete(id: any): void{
     this.service.delete(id).subscribe((resposta) => {
       if(resposta === null){
@@ -46,5 +55,11 @@ export class ReadAllComponent implements OnInit {
   navegarParaFinalizados(): void{
     this.router.navigate(['finalizados'])
   }
+
+  novaTarefa(): void{
+    this.router.navigate(['create'])
+  }
+
+
 
 }
